@@ -21,27 +21,27 @@ public class CoupleByCriteriaTests {
 	Person mike = new Person("Mike", new Date(79, 0, 1));
 		
 	@Test
-	public void Returns_Empty_Results_When_Given_Empty_List() {
+	public void Returns_Empty_Couple_When_Given_Empty_List() {
 		List<Person> list = new ArrayList<Person>();
 		CoupleByCriteria finder = new CoupleByCriteria(list);
 
-		Couple result = finder.Find(Criteria.Closest);
-		assertEquals(null, result.youngest);
+		Couple couple = finder.Find(Criteria.Closest);
+		assertEquals(null, couple.youngest);
 
-		assertEquals(null, result.oldest);
+		assertEquals(null, couple.oldest);
 	}
 
 	@Test
-	public void Returns_Empty_Results_When_Given_Closest_Person() {
+	public void Returns_Empty_Couple_When_Given_Closest_Person() {
 		List<Person> list = new ArrayList<Person>();
 		list.add(sue);
 
 		CoupleByCriteria finder = new CoupleByCriteria(list);
 
-		Couple result = finder.Find(Criteria.Closest);
+		Couple couple = finder.Find(Criteria.Closest);
 
-		assertEquals(null, result.youngest);
-		assertEquals(null, result.oldest);
+		assertEquals(null, couple.youngest);
+		assertEquals(null, couple.oldest);
 	}
 
 	@Test
@@ -51,10 +51,10 @@ public class CoupleByCriteriaTests {
 		list.add(greg);
 		CoupleByCriteria finder = new CoupleByCriteria(list);
 
-		Couple result = finder.Find(Criteria.Closest);
+		Couple couple = finder.Find(Criteria.Closest);
 
-		assertEquals(sue, result.youngest);
-		assertEquals(greg, result.oldest);
+		assertEquals(sue, couple.youngest);
+		assertEquals(greg, couple.oldest);
 	}
 
 	@Test
@@ -65,10 +65,10 @@ public class CoupleByCriteriaTests {
 
 		CoupleByCriteria finder = new CoupleByCriteria(list);
 
-		Couple result = finder.Find(Criteria.Farthest);
+		Couple couple = finder.Find(Criteria.Farthest);
 
-		assertEquals(greg, result.youngest);
-		assertEquals(mike, result.oldest);
+		assertEquals(greg, couple.youngest);
+		assertEquals(mike, couple.oldest);
 	}
 
 	@Test
@@ -80,10 +80,10 @@ public class CoupleByCriteriaTests {
 		list.add(greg);
 		CoupleByCriteria finder = new CoupleByCriteria(list);
 
-		Couple result = finder.Find(Criteria.Farthest);
+		Couple couple = finder.Find(Criteria.Farthest);
 
-		assertEquals(sue, result.youngest);
-		assertEquals(sarah, result.oldest);
+		assertEquals(sue, couple.youngest);
+		assertEquals(sarah, couple.oldest);
 	}
 
 	@Test
@@ -96,10 +96,10 @@ public class CoupleByCriteriaTests {
 
 		CoupleByCriteria finder = new CoupleByCriteria(list);
 
-		Couple result = finder.Find(Criteria.Closest);
+		Couple couple = finder.Find(Criteria.Closest);
 
-		assertEquals(sue, result.youngest);
-		assertEquals(greg, result.oldest);
+		assertEquals(sue, couple.youngest);
+		assertEquals(greg, couple.oldest);
 	}
 
 }
